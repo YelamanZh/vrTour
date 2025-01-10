@@ -1,38 +1,138 @@
-.App {
+/* App.css */
+
+/* Общие стили */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff; /* Белый фон главной страницы */
+}
+
+/* Navbar */
+.navbar {
+  background-color: #005758; /* Цвет фона navbar */
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Распределение логотипов по сторонам */
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  width: 200px; /* Увеличен размер логотипа */
+  height: auto;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Страница выбора локации */
+.location-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #ffffff; /* Белый фон */
+  padding: 40px 20px;
+  flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
+}
+
+.location-card {
+  margin: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* Располагаем элементы вертикально */
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.05); /* Лёгкий фон для карточки */
+  border: 3px solid #00937C; /* Единый цвет границы */
+  width: 220px; /* Фиксированная ширина карточки */
+  height: 280px; /* Фиксированная высота карточки */
+}
+
+.location-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00937C; /* Используем #00937C для тени */
+}
+
+.location-logo {
+  width: 180px; /* Размер превью изображения */
+  height: 180px;
+  object-fit: cover; /* Сохраняем пропорции изображения */
+  border-radius: 15px;
+  margin-bottom: 10px; /* Отступ снизу для текста */
+}
+
+.location-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00937C; /* Единый цвет для всех названий */
+  margin: 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Кнопка возврата */
+.back-button {
+  padding: 12px 24px;
+  background-color: #00937C; /* Основной цвет кнопки */
+  color: #ffffff; /* Белый текст */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.back-button:hover {
+  background-color: #007a63; /* Темнее при наведении */
+  transform: scale(1.05);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-direction: column;
+    align-items: flex-start;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .navbar-logo {
+    margin-right: 0;
+    margin-bottom: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .location-card {
+    width: 150px; /* Уменьшенная ширина на мобильных */
+    height: 220px; /* Уменьшенная высота на мобильных */
+  }
+
+  .location-logo {
+    width: 120px; /* Уменьшенный размер превью изображения */
+    height: 120px;
+    margin-bottom: 5px;
+  }
+
+  .location-name {
+    font-size: 18px;
   }
 }
